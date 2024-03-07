@@ -80,11 +80,11 @@ const products = [
   // Get DOM elements
   const productWrapperEL = document.querySelector('#products-wrapper');
   const checkEls = document.querySelectorAll('.check');
-  const filtersContainer = document.querySelector('#filter-container');
+  const filtersContainer = document.querySelectorAll('#filter-container');
   const searchInput = document.querySelector('#search');
   const cartButton = document.querySelector('#cartButton');
   const cartCount = document.querySelector('#cartCount');
-  
+
   // Initialize cart item count
   let cartItemCount = 0;
 
@@ -100,7 +100,9 @@ const products = [
   });
 
   // Add filter event listeners
-  filtersContainer.addEventListener('change', filterProducts);
+  filtersContainer.forEach((filter) => {
+    filter.addEventListener('change', filterProducts)
+  });
   searchInput.addEventListener('input', filterProducts);
 
   // Filter Products by search or checkbox
@@ -109,10 +111,16 @@ const products = [
     const searchTerm = searchInput.value.trim().toLowerCase();
     // Get checked categories
     const checkedCategories = Array.from(checkEls)
-                                   .filter((check) => check.checked)
-                                   .map((check) => check.id);
+                                   .filter(check => check.checked)
+                                  .map((check) => check.id);
+                              
+    // Loop over products and check for mathces
+    productsEls.forEach((productElement, index) => {
+      const product = products[index];
 
-    console.log(checkedCategories);                               
+      // Check to see if product matches the search or checked items
+      
+    })                             
   }
 
   // Create product elements
