@@ -112,15 +112,24 @@ const products = [
     // Get checked categories
     const checkedCategories = Array.from(checkEls)
                                    .filter(check => check.checked)
-                                  .map((check) => check.id);
+                                   .map((check) => check.id);
                               
     // Loop over products and check for mathces
     productsEls.forEach((productElement, index) => {
       const product = products[index];
 
       // Check to see if product matches the search or checked items
-      
-    })                             
+      const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm);
+      const isInCheckedCategory = checkedCategories.length === 0 || checkedCategories.includes(product.type)
+
+      // Show or Hide product based on matches
+      if(matchesSearchTerm && isInCheckedCategory){
+        productElement.classList.remove('hidden');
+      } else {
+        productElement.classList.add('hidden');
+      }
+    })       
+    
   }
 
   // Create product elements
