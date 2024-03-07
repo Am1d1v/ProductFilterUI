@@ -12,7 +12,6 @@
     
     <!-- Navigation Bar -->
    <nav class="bg-gray-900 p-4 mg-6">
-
         <div class="container max-w-6xl mx-auto flex flex-col sm:flex-row gap-8 items-center">
 
             <!-- Search Area -->
@@ -27,8 +26,65 @@
             </button>
 
         </div>
-
    </nav>
+
+
+   <!-- Categories Filter and Products -->
+   <main class="flex flex-col md:flex-row container mx-auto max-w-6xl">
+
+    <div class="space-y-4 p-2 w-full md:max-w-[10rem]">
+        <h2 class="text-2xl">Filters</h2>
+        <h3 class="text-xl mb-2">Category</h3>
+
+        <div id="filter-container" class="text-xl space-y-2">
+            <input type="checkbox" class="check" id="cameras">
+            <label for="cameras" id="cameras">Cameras</label>
+        </div>
+
+        <div id="filter-container" class="text-xl space-y-2">
+            <input type="checkbox" class="check" id="smartphones">
+            <label for="smartphones" id="cameras">Smartphones</label>
+        </div>
+
+        <div id="filter-container" class="text-xl space-y-2">
+            <input type="checkbox" class="check" id="games">
+            <label for="games" id="cameras">Games</label>
+        </div>
+
+        <div id="filter-container" class="text-xl space-y-2">
+            <input type="checkbox" class="check" id="television">
+            <label for="television" id="tel">Television</label>
+        </div>
+
+    </div>
+
+    <!-- Products Wrapper -->
+    <div id="products-wrapper" class="w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 place-content-center p-4">
+
+        <div class="item space-y-2">
+            <div class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border">
+                <img src="/images/playstation_5.png" alt="" class="w-full h-full object-cover">
+                <span class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0">Add to Cart</span>
+            </div>
+
+            <p class="text-xl">Playstation 5</p>
+            <strong>$399</strong>
+        </div>
+        
+        <div class="item space-y-2">
+            <div class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border">
+                <img src="/images/playstation_5.png" alt="" class="w-full h-full object-cover">
+                <span class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0">Add to Cart</span>
+            </div>
+
+            <p class="text-xl">Playstation 5</p>
+            <strong>$399</strong>
+        </div>
+
+    </div>
+
+
+   </main>
 
 
 
