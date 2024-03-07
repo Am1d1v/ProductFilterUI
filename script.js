@@ -80,9 +80,9 @@ const products = [
   // Get DOM elements
   const productWrapperEL = document.querySelector('#products-wrapper');
   const checkEls = document.querySelectorAll('.check');
-  const filtersContainer = document.querySelectorAll('#filter-container');
-  const searchInput = document.querySelectorAll('#search');
-  const cartButton = document.querySelectorAll('#cartButton');
+  const filtersContainer = document.querySelector('#filter-container');
+  const searchInput = document.querySelector('#search');
+  const cartButton = document.querySelector('#cartButton');
   const cartCount = document.querySelector('#cartCount');
   
   // Initialize cart item count
@@ -98,6 +98,22 @@ const products = [
 
     productWrapperEL.appendChild(productEl)
   });
+
+  // Add filter event listeners
+  filtersContainer.addEventListener('change', filterProducts);
+  searchInput.addEventListener('input', filterProducts);
+
+  // Filter Products by search or checkbox
+  function filterProducts(){
+    // Get search term
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    // Get checked categories
+    const checkedCategories = Array.from(checkEls)
+                                   .filter((check) => check.checked)
+                                   .map((check) => check.id);
+
+    console.log(checkedCategories);                               
+  }
 
   // Create product elements
   function createProductElement(product){
@@ -150,3 +166,4 @@ const products = [
     cartCount.innerText = cartItemCount.toString();
     
   }
+
