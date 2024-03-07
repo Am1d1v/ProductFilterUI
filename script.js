@@ -112,6 +112,27 @@ const products = [
                           <p class="text-xl">${product.name}</p>
                           <strong>$${product.price.toLocaleString()}</strong>`;
 
+    productEl.querySelector('.status').addEventListener('click', addToCart);                      
 
     return productEl;                       
+  }
+
+  // Toggle add/remove from cart
+  function addToCart(event){
+    const statusElement = event.target;
+
+    // Check product's cart status
+    if(statusElement.classList.contains('added')){
+      // Remove from cart
+    } else {
+      // Add to cart
+      statusElement.classList.add('added');
+      statusElement.textContent = 'Remove from Cart';
+
+      // Change style
+      statusElement.classList.remove('bg-gray-800');
+      statusElement.classList.add('bg-red-800');
+    }
+
+    console.log(event.target.inne);
   }
