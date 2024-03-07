@@ -76,3 +76,42 @@ const products = [
     },
   ];
   
+
+  // Get DOM elements
+  const productWrapperEL = document.querySelector('#products-wrapper');
+  const checkEls = document.querySelectorAll('.check');
+  const filtersContainer = document.querySelectorAll('#filter-container');
+  const searchInput = document.querySelectorAll('#search');
+  const cartButton = document.querySelectorAll('#cartButton');
+  const cartCount = document.querySelectorAll('#cartCount');
+  
+  // Initialize cart item count
+  let cartItemCount = 0;
+
+  // Initialize products
+  const productsEls = [];
+
+  // Loop over the products and create product elements
+  products.forEach((product) => {
+    const productEl = createProductElement(product);
+    productsEls.push(productEl)
+
+    productWrapperEL.appendChild(productEl)
+  });
+
+  // Create product elements
+  function createProductElement(product){
+    const productEl = document.createElement('div');
+    productEl.className = 'item space-y-2';
+
+    productEl.innerHTML = `<div class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border">
+                            <img src="${product.url}" alt="${product.name}" class="w-full h-full object-cover">
+                            <span class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0">Add to Cart</span>
+                          </div>
+
+                          <p class="text-xl">${product.name}</p>
+                          <strong>$${product.price.toLocaleString()}</strong>`;
+
+
+    return productEl;                       
+  }
